@@ -53,7 +53,10 @@ public class cuentaBancaria {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
-    
-    
-    
+    public void ingresarSaldo(int cantidad){
+        saldo = saldo + cantidad;
+    }
+    public void retirarSaldo(int cantidad){
+        saldo = saldo - cantidad;
+    }
 }
