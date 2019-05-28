@@ -76,4 +76,9 @@ public class cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+    
+    public String dimeInfo(){
+        String auxiliar = "Nuestro cliente: "+nombre+"con apellidos"+apellidos+" tiene los siguientes datos: "+" ,"+direccion+" ,"+telefono+" ,"+id;
+        return auxiliar;
+    }
 }
