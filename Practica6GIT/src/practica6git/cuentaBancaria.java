@@ -22,6 +22,11 @@ public class cuentaBancaria {
         this.cliente = cliente;
     }
 
+    public cuentaBancaria() {
+    }
+    
+    
+
     public String getNombre() {
         return nombre;
     }
