@@ -18,8 +18,8 @@ public class principal {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcion=1,edad,id,cantidad;
-        String nombre,apellido,direccion,telefono,nombreCuenta;
+        int opcion=1,edad,id,cantidad,telefono,saldoCuentaDestino=0;
+        String nombre,apellido,direccion = null,nombreCuenta,cuentaExistente = null;
         
         Scanner letras= new Scanner(System.in);
         Scanner numero= new Scanner(System.in);
@@ -53,7 +53,7 @@ public class principal {
                     direccion=letras.nextLine();
                     
                     System.out.println("Escriba su numero de telefono");
-                    telefono=letras.nextLine();
+                    telefono=numero.nextInt();
                     
                     System.out.println("Su cliente ha sido creado con éxito");
                     break;
@@ -66,17 +66,50 @@ public class principal {
                     System.out.println("Su cuenta ha sido creada con éxito");
                     break;
                 case 3:
-                    System.out.println("Has seleccionado la opción: Ingresar");
-                    System.out.println("Escriba la cantidad que quiera ingresar");
+                    System.out.println("Has seleccionado la opcion ingresar");
+                    System.out.println("Escriba el número de la cuenta");
+                    nombreCuenta=numero.nextLine();
+                    if(nombreCuenta == cuentaExistente){
+                    System.out.println("Escriba la cantidad que quiere ingresar");
                     cantidad=numero.nextInt();
-                    System.out.println("Has ingresado saldo correctamente");
+                    llamarCuenta.ingresarSaldo(cantidad);
+                    }
+                    else{
+                    System.out.println("La cuenta no existe o es erronea");
+
+                    }
                     break;
                 case 4:
-                    System.out.println("Has seleccionado la opción: Retirar");
-                    System.out.println("Escriba la cantidad que quiera retirar");
+                    System.out.println("Has seleccionado la opcion retirar");
+                    System.out.println("Escriba el número de la cuenta");
+                    nombreCuenta=numero.nextLine();
+                    if(nombreCuenta.equals(cuentaExistente)){
+                    System.out.println("Escriba la cantidad que quiere retirar");
                     cantidad=numero.nextInt();
-                    System.out.println("Has retirado saldo correctamente");
+                    llamarCuenta.retirarSaldo(cantidad);
+                    }
+                    else{
+                    System.out.println("La cuenta no existe o es erronea");
+
+                    }
                     break;
+                case 5:
+                    System.out.println("Seleccionaste la opcion modificar datos cliente");
+                    System.out.println("Escriba su dirección, la dirección que va a modificar es: " + direccion);
+                    direccion=letras.nextLine();
+                    System.out.println("Escriba su número de teléfono, el número de telefono que va a modificar es: " + telefono);
+                    telefono=numero.nextInt();
+                    System.out.println("Los cambios se han efectuado con éxito: nueva dirección= ” + dirección + “, telefono= ” + telefono");
+                    break;
+                case 6:
+                    System.out.println("Seleccionaste la opción de transferencia entre cuentas");
+                    System.out.println("Escriba la cuenta destino");
+                    String cuentaDestino = numero.nextLine();
+                    System.out.println("Escriba la cantidad que quiere ingresar en cuenta origen");
+                    cantidad=numero.nextInt();
+                    llamarCuenta.ingresarSaldo(cantidad);
+                    saldoCuentaDestino = cantidad + saldoCuentaDestino;
+                    break;            
                 case 0:
                     System.out.println("Has elegido la opción: Salir");
                     System.out.println("VENGA, HASTA A DIOS");
