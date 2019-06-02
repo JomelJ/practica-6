@@ -10,10 +10,10 @@ package practica6git;
  * @author Alejandro
  */
 public class cuentaBancaria {
-    private String nombre;
-    private int saldo;
-    private int id;
-    private String cliente;
+    public String nombre;
+    public int saldo;
+    public int id;
+    public String cliente;
 
     public cuentaBancaria(String nombre, int saldo, int id, String cliente) {
         this.nombre = nombre;
@@ -59,9 +59,19 @@ public class cuentaBancaria {
         this.cliente = cliente;
     }
     public void ingresarSaldo(int cantidad){
-        saldo = saldo + cantidad;
+        this.setSaldo(this.getSaldo()+ cantidad);
     }
     public void retirarSaldo(int cantidad){
-        saldo = saldo - cantidad;
+        if(this.getSaldo()>cantidad) {
+            this.setSaldo(this.getSaldo()-cantidad);
+        }
+        else {
+            System.out.println("No hay suficiente saldo en la cuenta");
+        }
+    }
+    public void controlSaldo(int cantidad){
+        if(this.getSaldo()<cantidad){
+            System.out.println("La cantidad a extra es mucho mayor quel saldo: cantidad = " + cantidad + ", saldo= "+ saldo );
+        }
     }
 }
