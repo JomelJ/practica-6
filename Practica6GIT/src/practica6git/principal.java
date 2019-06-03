@@ -18,7 +18,7 @@ public class principal {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcion=1,edad,id,cantidad,telefono,saldoCuentaDestino=0;
+        int opcion=1,edad,id,cantidad,telefono=671263380,saldoCuentaDestino=0;
         String nombre,apellido,direccion = null,nombreCuenta,cuentaExistente = null;
         
         Scanner letras= new Scanner(System.in);
